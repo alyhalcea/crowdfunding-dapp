@@ -1,16 +1,85 @@
-# React + Vite
+# Crowdfunding dApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A decentralized crowdfunding application built using the MultiversX blockchain ecosystem.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a blockchain-based crowdfunding platform where users can simulate donations using EGLD. The application demonstrates the architecture of a decentralized application (dApp), including a smart contract, a frontend interface, wallet interaction logic, and transaction processing concepts.
 
-## React Compiler
+The project was developed for the Blockchain, Money & FinTech laboratory project.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Smart contract written in Rust
+- MultiversX smart contract architecture
+- WASM smart contract build
+- React frontend interface
+- Wallet connection simulation
+- Donation transaction simulation
+- Dynamic crowdfunding progress tracking
+- Recent donations feed
+- Responsive modern UI
+- Transaction confirmation system
+
+---
+
+## Technologies Used
+
+### Blockchain
+- MultiversX Devnet
+- Rust
+- multiversx-sc framework
+- WebAssembly (WASM)
+
+### Frontend
+- React
+- Vite
+- JavaScript
+
+### Deployment
+- Vercel
+- GitHub
+
+---
+
+## Smart Contract Logic
+
+The smart contract contains the crowdfunding business logic:
+
+### Main Endpoints
+
+#### donate()
+Accepts EGLD payments and updates the total donations amount.
+
+#### withdraw()
+Allows only the contract owner to withdraw collected funds.
+
+### Storage
+
+#### totalDonations
+Stores the total EGLD collected by the campaign.
+
+#### owner
+Stores the smart contract owner's address.
+
+---
+
+## Frontend Functionality
+
+The frontend allows users to:
+
+- Connect a wallet
+- Simulate EGLD donations
+- View funding progress
+- View recent donations
+- View transaction confirmations
+
+---
+
+## Running the Frontend Locally
+
+```bash
+npm install
+npm run dev
