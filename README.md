@@ -154,6 +154,6 @@ https://your-vercel-link.vercel.app
 
 ---
 
-# Author
+# Authors
 
-Alina Halcea
+Alina Halcea & Francisca Buta
