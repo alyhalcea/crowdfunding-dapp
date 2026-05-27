@@ -129,17 +129,21 @@ crowdfunding-sc/
 
 ---
 
+# Smart Contract Address
+
+erd1qqqqqqqqqqqqqpgqxspslehyqp72y7c5hmlvg3j90rf00zkxs8lqm745ge
+
 # Deployment
 
 Frontend deployed using Vercel.
 
-Smart contract prepared for deployment on MultiversX Devnet.
+Smart contract successfully deployed on MultiversX Devnet.
 
 ---
 
 # Live Demo
 
-https://your-vercel-link.vercel.app
+https://crowdfunding-dapp-beta.vercel.app/
 
 ---
 
