@@ -3,13 +3,23 @@ import { useState } from "react";
 function App() {
   const [amount, setAmount] = useState("");
 
-  const [donations, setDonations] = useState([
-    { name: "Alice", amount: 120 },
-    { name: "Bob", amount: 80 },
-    { name: "Charlie", amount: 200 },
-  ]);
+  const [donations, setDonations] = useState(() => {
+    return (
+      JSON.parse(localStorage.getItem("donations")) || [
+        { name: "Alice", amount: 120 },
+        { name: "Bob", amount: 80 },
+        { name: "Charlie", amount: 200 },
+      ]
+    );
+  });
 
-  const [total, setTotal] = useState(950);
+  const [total, setTotal] = useState(() => {
+    const savedTotal = localStorage.getItem("total");
+
+    return savedTotal !== null
+      ? Number(savedTotal)
+      : 950;
+  });
 
   const [connected, setConnected] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -40,7 +50,17 @@ function App() {
 
       setDonations([newDonation, ...donations]);
 
+      localStorage.setItem(
+        "donations",
+        JSON.stringify([newDonation, ...donations])
+      );
+
       setTotal(total + Number(amount));
+
+      localStorage.setItem(
+        "total",
+        total + Number(amount)
+      );
 
       setLoading(false);
 
@@ -53,6 +73,21 @@ function App() {
 
       setAmount("");
     }, 2000);
+  };
+
+  const handleWithdraw = () => {
+    setTotal(0);
+
+    setDonations([]);
+
+    localStorage.setItem("total", 0);
+
+    localStorage.setItem(
+      "donations",
+      JSON.stringify([])
+    );
+
+    alert("Funds withdrawn successfully");
   };
 
   const progress = Math.min((total / 1000) * 100, 100);
@@ -144,6 +179,26 @@ function App() {
                 ? "Disconnect"
                 : "Connect Wallet"}
             </button>
+
+            <button
+              onClick={handleWithdraw}
+              style={{
+                width: "100%",
+                padding: "16px",
+                borderRadius: "12px",
+                border: "none",
+                background:
+                  "linear-gradient(90deg, #dc2626, #b91c1c)",
+                color: "white",
+                fontSize: "17px",
+                fontWeight: "bold",
+                cursor: "pointer",
+                marginTop: "15px",
+              }}
+            >
+              Withdraw Funds
+            </button>
+
           </div>
         </div>
 
